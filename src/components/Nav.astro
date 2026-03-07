@@ -1,0 +1,168 @@
+---
+const navLinks = [
+  { label: 'About', href: '#about' },
+  { label: 'Expertise', href: '#expertise' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'References', href: '#references' },
+  { label: 'Contact', href: '#contact' },
+];
+---
+
+<nav class="nav" id="nav">
+  <div class="nav-inner container">
+    <a href="#" class="nav-logo">
+      <span class="logo-name">Lan Nguyen</span>
+      <span class="logo-title">Marcom PM</span>
+    </a>
+    <ul class="nav-links">
+      {navLinks.map(link => (
+        <li><a href={link.href}>{link.label}</a></li>
+      ))}
+    </ul>
+    <a href="#contact" class="nav-cta">Let's talk</a>
+    <button class="nav-burger" aria-label="Menu" id="burger">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    {navLinks.map(link => (
+      <li><a href={link.href} class="mobile-link">{link.label}</a></li>
+    ))}
+  </ul>
+</div>
+
+<style>
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  transition: background 0.3s, box-shadow 0.3s;
+  padding: 1.25rem 0;
+}
+.nav.scrolled {
+  background: rgba(255,253,249,0.95);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+  padding: 0.85rem 0;
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.nav-logo {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+  margin-right: auto;
+}
+.logo-name {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.1rem;
+  color: var(--c-dark);
+}
+.logo-title {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-orange);
+}
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+.nav-links a {
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--c-dark);
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity 0.2s, color 0.2s;
+}
+.nav-links a:hover { opacity: 1; color: var(--c-orange); }
+.nav-cta {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: white;
+  background: var(--c-orange);
+  text-decoration: none;
+  padding: 0.6rem 1.25rem;
+  border-radius: 1px;
+  transition: background 0.2s;
+}
+.nav-cta:hover { background: var(--c-red); }
+.nav-burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+.nav-burger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--c-dark);
+  transition: transform 0.2s;
+}
+.mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  background: var(--c-dark);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu ul {
+  list-style: none;
+  text-align: center;
+}
+.mobile-menu li { margin: 1.25rem 0; }
+.mobile-link {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.mobile-link:hover { color: var(--c-pink); }
+
+@media (max-width: 768px) {
+  .nav-links, .nav-cta { display: none; }
+  .nav-burger { display: flex; }
+}
+</style>
+
+<script>
+const nav = document.getElementById('nav');
+const burger = document.getElementById('burger');
+const mobileMenu = document.getElementById('mobileMenu');
+
+window.addEventListener('scroll', () => {
+  nav?.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+burger?.addEventListener('click', () => {
+  mobileMenu?.classList.toggle('open');
+});
+
+document.querySelectorAll('.mobile-link').forEach(link => {
+  link.addEventListener('click', () => mobileMenu?.classList.remove('open'));
+});
+</script>

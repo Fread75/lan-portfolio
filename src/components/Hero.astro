@@ -1,0 +1,316 @@
+---
+---
+
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <div class="hero-grain"></div>
+    <div class="hero-photo-bg" style="background-image: url('/images/p1_img1_1092x819.jpeg')"></div>
+    <div class="hero-overlay"></div>
+  </div>
+
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <p class="hero-tag anim-fade-up">Digital Marketing Communication</p>
+      <h1 class="hero-name anim-fade-up anim-delay-1">
+        Lan<br /><em>Nguyen</em>
+      </h1>
+      <p class="hero-subtitle anim-fade-up anim-delay-2">Project Manager</p>
+      <p class="hero-desc anim-fade-up anim-delay-3">
+        5+ years building brand identities, digital platforms, and communication strategies for international companies. Fluent in English &amp; French.
+      </p>
+      <div class="hero-actions anim-fade-up anim-delay-4">
+        <a href="#projects" class="btn-primary">View my work</a>
+        <a href="#about" class="btn-ghost">About me</a>
+      </div>
+      <div class="hero-companies anim-fade-up anim-delay-5">
+        <span class="companies-label">Previously at</span>
+        <div class="companies-list">
+          <span>Ajinomoto Foods Europe</span>
+          <span>Imperial Tobacco</span>
+          <span>Deloitte</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual anim-fade-up anim-delay-2">
+      <div class="hero-card">
+        <div class="card-accent"></div>
+        <div class="card-stats">
+          <div class="stat">
+            <span class="stat-val">5+</span>
+            <span class="stat-lbl">Years exp.</span>
+          </div>
+          <div class="stat">
+            <span class="stat-val">7</span>
+            <span class="stat-lbl">Companies</span>
+          </div>
+          <div class="stat">
+            <span class="stat-val">80%</span>
+            <span class="stat-lbl">SEO growth</span>
+          </div>
+          <div class="stat">
+            <span class="stat-val">+40k</span>
+            <span class="stat-lbl">Video views</span>
+          </div>
+        </div>
+        <div class="card-expertise">
+          <span>Digital Projects</span>
+          <span>Communication Strategy</span>
+          <span>Video Production</span>
+          <span>Social Media</span>
+          <span>SEO</span>
+          <span>Photography</span>
+        </div>
+      </div>
+      <div class="scroll-hint">
+        <span>scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.hero {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding: 8rem 0 5rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hero-grain {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.4;
+  z-index: 2;
+}
+.hero-photo-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center top;
+  z-index: 0;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(26,16,7,0.92) 0%,
+    rgba(26,16,7,0.75) 50%,
+    rgba(26,16,7,0.3) 100%
+  );
+  z-index: 1;
+}
+.hero-inner {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+.hero-tag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--c-pink);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.hero-tag::before {
+  content: '';
+  display: block;
+  width: 2rem;
+  height: 1px;
+  background: var(--c-pink);
+}
+.hero-name {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 8vw, 7rem);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+.hero-name em {
+  font-style: italic;
+  color: var(--c-pink);
+  display: block;
+}
+.hero-subtitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 2rem;
+}
+.hero-desc {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.75);
+  max-width: 44ch;
+  margin-bottom: 2.5rem;
+}
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+.btn-primary {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: white;
+  background: var(--c-orange);
+  text-decoration: none;
+  padding: 1rem 2rem;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn-primary:hover { background: var(--c-red); transform: translateY(-2px); }
+.btn-ghost {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: white;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  border: 1px solid rgba(255,255,255,0.3);
+  transition: border-color 0.2s, background 0.2s;
+}
+.btn-ghost:hover { border-color: white; background: rgba(255,255,255,0.08); }
+.hero-companies { }
+.companies-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  display: block;
+  margin-bottom: 0.75rem;
+}
+.companies-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.companies-list span {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.08);
+  padding: 0.35rem 0.85rem;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 1px;
+}
+
+/* Card */
+.hero-visual { position: relative; }
+.hero-card {
+  background: var(--c-dark);
+  color: white;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.card-accent {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--c-orange), var(--c-pink));
+}
+.card-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.stat { }
+.stat-val {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: var(--c-pink);
+  line-height: 1;
+}
+.stat-lbl {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-top: 0.25rem;
+  display: block;
+}
+.card-expertise {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.card-expertise span {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 0.35rem 0.75rem;
+  border-radius: 1px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.card-expertise span:hover {
+  color: var(--c-pink);
+  border-color: rgba(244,167,163,0.4);
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: -2rem;
+  right: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+.scroll-hint span {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+  writing-mode: vertical-rl;
+}
+.scroll-line {
+  width: 1px;
+  height: 3rem;
+  background: linear-gradient(to bottom, var(--c-orange), transparent);
+  animation: scrollPulse 1.5s ease-in-out infinite;
+}
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .hero-visual { display: none; }
+}
+</style>

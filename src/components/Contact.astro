@@ -1,0 +1,181 @@
+---
+---
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-inner scroll-reveal">
+      <div class="contact-text">
+        <p class="section-label">Get in touch</p>
+        <h2 class="section-title">Let's work<br /><em>together</em></h2>
+        <p class="contact-desc">
+          Open to new opportunities in Digital Marketing Communication, Project Management, and Communication Strategy roles — in France and internationally.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:lan.nguyen@email.com" class="contact-link">
+            <span class="link-icon">✉</span>
+            <span>lan.nguyen@email.com</span>
+          </a>
+          <a href="https://linkedin.com/in/lan-nguyen" target="_blank" rel="noopener" class="contact-link">
+            <span class="link-icon">in</span>
+            <span>LinkedIn</span>
+          </a>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-label">Available for</div>
+        <ul class="availability-list">
+          <li>Full-time positions</li>
+          <li>Freelance / Consulting</li>
+          <li>International opportunities</li>
+          <li>Digital transformation projects</li>
+        </ul>
+        <div class="contact-lang">
+          <p class="section-label" style="margin-top:1.5rem">Languages</p>
+          <div class="lang-row">
+            <span class="lang-tag">🇬🇧 English — Fluent</span>
+            <span class="lang-tag">🇫🇷 French — Fluent</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <p class="footer-name">Lan Nguyen</p>
+    <p class="footer-role">Digital Marketing Communication Project Manager</p>
+    <p class="footer-copy">© {new Date().getFullYear()} — All rights reserved</p>
+  </div>
+</footer>
+
+<style>
+.contact {
+  padding: var(--section-pad) 0;
+  background: var(--c-cream);
+}
+.contact-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+.contact-desc {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #5A4030;
+  max-width: 44ch;
+  margin: 1.5rem 0 2.5rem;
+}
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: var(--c-dark);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.contact-link:hover { color: var(--c-orange); }
+.link-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: var(--c-dark);
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border-radius: 1px;
+  font-family: var(--font-mono);
+  flex-shrink: 0;
+}
+
+.contact-card {
+  background: var(--c-dark);
+  color: white;
+  padding: 2.5rem;
+}
+.contact-card-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--c-orange);
+  margin-bottom: 1.25rem;
+}
+.availability-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.availability-list li {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.8);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.availability-list li::before {
+  content: '→';
+  color: var(--c-orange);
+  font-size: 0.8rem;
+}
+.lang-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+.lang-tag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  color: rgba(255,255,255,0.7);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 0.35rem 0.85rem;
+}
+
+/* Footer */
+.footer {
+  background: var(--c-dark);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 2.5rem 0;
+}
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 2rem;
+}
+.footer-name {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.1rem;
+  color: white;
+}
+.footer-role {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c-orange);
+  flex: 1;
+}
+.footer-copy {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.3);
+}
+
+@media (max-width: 768px) {
+  .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+}
+</style>

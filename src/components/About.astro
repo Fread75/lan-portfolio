@@ -1,0 +1,197 @@
+---
+const expertises = [
+  {
+    number: '01',
+    title: 'Digital Projects Management',
+    desc: 'With a strategic mindset and hands-on experience, I drive impactful results across websites, social media campaigns, and digital initiatives by aligning creative vision with business objectives.',
+    tools: ['Asana', 'Trello', 'Figma', 'WordPress', 'Drupal'],
+  },
+  {
+    number: '02',
+    title: 'Communication Strategy',
+    desc: 'My expertise includes conducting in-depth communication audits and developing charters that define tone, messaging, and channels for both traditional and digital media.',
+    tools: ['Editorial Charter', 'Content Strategy', 'SEO', 'Brand Identity'],
+  },
+  {
+    number: '03',
+    title: 'Video Content Production',
+    desc: 'I specialize in full-cycle production of corporate videos, overseeing projects in collaboration with external agencies, ensuring all content aligns with brand identity.',
+    tools: ['Adobe Premiere Pro', 'Filmora', 'Capcut', 'Wondershare'],
+  },
+];
+---
+
+<section class="about" id="about">
+  <div class="container">
+
+    <div class="about-intro scroll-reveal">
+      <div class="about-bio">
+        <p class="section-label">About</p>
+        <h2 class="section-title">Detail-oriented<br /><em>professional</em></h2>
+        <p class="bio-text">
+          Detail-oriented Communications and Marketing Professional with a strong track record of building company culture and compelling brand identities. Skilled in digital projects management, developing sustainable growth strategies, delivering SEO-optimized content, and driving engagement across digital platforms, resulting in measurable business outcomes.
+        </p>
+        <p class="bio-text" style="margin-top:1rem;">
+          Fluent in <strong>English and French</strong>, enabling efficient collaboration with international colleagues, clients and business partners.
+        </p>
+        <div class="tools-row">
+          <p class="section-label" style="margin-top:2rem;">Tools &amp; Software</p>
+          <div class="tools-grid">
+            <div class="tool-cat">
+              <span class="tool-cat-name">Design</span>
+              <span>Figma · Adobe PS · Illustrator · Indesign</span>
+            </div>
+            <div class="tool-cat">
+              <span class="tool-cat-name">PM</span>
+              <span>Invision · Asana · Trello</span>
+            </div>
+            <div class="tool-cat">
+              <span class="tool-cat-name">Video</span>
+              <span>Premiere Pro · Filmora · Capcut</span>
+            </div>
+            <div class="tool-cat">
+              <span class="tool-cat-name">Analytics</span>
+              <span>Google Analytics · SEMrush · LinkedIn Analytics · Poppulo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="expertise-section" id="expertise">
+      <p class="section-label scroll-reveal">Expertise</p>
+      <h2 class="section-title scroll-reveal">What I <em>do best</em></h2>
+
+      <div class="expertise-grid">
+        {expertises.map((exp, i) => (
+          <div class={`expertise-card scroll-reveal`} style={`transition-delay: ${i * 0.1}s`}>
+            <span class="exp-num">{exp.number}</span>
+            <h3 class="exp-title">{exp.title}</h3>
+            <p class="exp-desc">{exp.desc}</p>
+            <div class="exp-tools">
+              {exp.tools.map(t => <span class="tool-tag">{t}</span>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+.about {
+  padding: var(--section-pad) 0;
+  background: var(--c-cream);
+}
+.about-intro {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  margin-bottom: 6rem;
+  padding-bottom: 6rem;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+.bio-text {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #4A3828;
+  max-width: 65ch;
+}
+.bio-text strong { color: var(--c-orange); font-weight: 600; }
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.tool-cat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1rem 1.25rem;
+  background: white;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+.tool-cat-name {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-orange);
+  margin-bottom: 0.25rem;
+}
+.tool-cat span:last-child {
+  font-size: 0.82rem;
+  color: var(--c-muted);
+  line-height: 1.5;
+}
+
+.expertise-section { }
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1px;
+  background: rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.08);
+  margin-top: 3rem;
+}
+.expertise-card {
+  background: white;
+  padding: 2.5rem;
+  transition: background 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.expertise-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 0;
+  background: var(--c-orange);
+  transition: height 0.3s ease;
+}
+.expertise-card:hover { background: var(--c-cream); }
+.expertise-card:hover::after { height: 3px; }
+
+.exp-num {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: rgba(0,0,0,0.05);
+  line-height: 1;
+  display: block;
+  margin-bottom: 1rem;
+  letter-spacing: -0.04em;
+}
+.exp-title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--c-dark);
+  line-height: 1.2;
+}
+.exp-desc {
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: var(--c-muted);
+  margin-bottom: 1.5rem;
+}
+.exp-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.tool-tag {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-orange);
+  border: 1px solid rgba(232,99,10,0.25);
+  padding: 0.25rem 0.6rem;
+  border-radius: 1px;
+}
+</style>
