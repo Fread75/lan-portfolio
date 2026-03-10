@@ -4,19 +4,19 @@
 <section class="hero" id="hero">
   <div class="hero-bg">
     <div class="hero-grain"></div>
-    <div class="hero-photo-bg" style="background-image: url('/images/p1_img1_1092x819.jpeg')"></div>
+    <div class="hero-photo-bg" style="background-image: url('/images/beauty_1567700977527.JPG')"></div>
     <div class="hero-overlay"></div>
   </div>
 
   <div class="container hero-inner">
     <div class="hero-text">
-      <p class="hero-tag anim-fade-up">Digital Marketing Communication</p>
+      <p class="hero-tag anim-fade-up">Hello, I am</p>
       <h1 class="hero-name anim-fade-up anim-delay-1">
         Lan<br /><em>Nguyen</em>
       </h1>
-      <p class="hero-subtitle anim-fade-up anim-delay-2">Project Manager</p>
+      <p class="hero-subtitle anim-fade-up anim-delay-2">your communication expert</p>
       <p class="hero-desc anim-fade-up anim-delay-3">
-        5+ years building brand identities, digital platforms, and communication strategies for international companies. Fluent in English &amp; French.
+        With 7+ years of experience amplifying brand visibility, digital &amp; social media presence, and audience engagement for agencies and B2B, consumer, and multinational organizations, skyrocketing SEO traffic by 80%, achieving top-five competitive channel performance, securing 50+ qualified inbound leads, and sparking a measurable lift across content, campaigns, and proposals.
       </p>
       <div class="hero-actions anim-fade-up anim-delay-4">
         <a href="#projects" class="btn-primary">View my work</a>
@@ -26,6 +26,7 @@
         <span class="companies-label">Previously at</span>
         <div class="companies-list">
           <span>Ajinomoto Foods Europe</span>
+          <span>Charles Financial Strategies</span>
           <span>Imperial Tobacco</span>
           <span>Deloitte</span>
         </div>
@@ -41,25 +42,22 @@
             <span class="stat-lbl">Years exp.</span>
           </div>
           <div class="stat">
-            <span class="stat-val">7</span>
-            <span class="stat-lbl">Companies</span>
+            <span class="stat-val">100%</span>
+            <span class="stat-lbl stat-lbl-wide">Employee Engagement</span>
           </div>
           <div class="stat">
             <span class="stat-val">100%</span>
             <span class="stat-lbl">SEO growth</span>
           </div>
-          <div class="stat">
-            <span class="stat-val">+40k</span>
-            <span class="stat-lbl">Video views</span>
-          </div>
         </div>
         <div class="card-expertise">
-          <span>Digital Projects</span>
-          <span>Communication Strategy</span>
-          <span>Video Production</span>
+          <span>Intranet</span>
+          <span>CMS</span>
+          <span>Newsletter</span>
+          <span>Redesign Website</span>
+          <span>Visual Communication</span>
+          <span>KPI</span>
           <span>Social Media</span>
-          <span>SEO</span>
-          <span>Photography</span>
         </div>
       </div>
       <div class="scroll-hint">
@@ -95,7 +93,8 @@
   position: absolute;
   inset: 0;
   background-size: cover;
-  background-position: center top;
+  background-position: 62% 30%;
+  filter: brightness(1.08);
   z-index: 0;
 }
 .hero-overlay {
@@ -103,9 +102,9 @@
   inset: 0;
   background: linear-gradient(
     105deg,
-    rgba(26,16,7,0.92) 0%,
-    rgba(26,16,7,0.75) 50%,
-    rgba(26,16,7,0.3) 100%
+    rgba(26,16,7,0.78) 0%,
+    rgba(26,16,7,0.58) 50%,
+    rgba(26,16,7,0.18) 100%
   );
   z-index: 1;
 }
@@ -222,13 +221,19 @@
 }
 
 /* Card */
-.hero-visual { position: relative; }
+.hero-visual {
+  position: relative;
+  width: min(100%, 48rem);
+  justify-self: end;
+  align-self: end;
+}
 .hero-card {
-  background: var(--c-dark);
+  background: rgba(26,16,7,0.8);
   color: white;
   padding: 2.5rem;
   position: relative;
   overflow: hidden;
+  width: 100%;
 }
 .card-accent {
   position: absolute;
@@ -238,13 +243,16 @@
 }
 .card-stats {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.8fr 1.4fr 0.8fr;
   gap: 1.5rem;
+  align-items: start;
   margin-bottom: 2rem;
   padding-bottom: 2rem;
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
-.stat { }
+.stat {
+  min-width: 0;
+}
 .stat-val {
   display: block;
   font-family: var(--font-display);
@@ -261,21 +269,26 @@
   color: rgba(255,255,255,0.4);
   margin-top: 0.25rem;
   display: block;
+  line-height: 1.4;
+}
+.stat-lbl-wide {
+  white-space: nowrap;
 }
 .card-expertise {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  flex-wrap: nowrap;
+  gap: 0.4rem;
 }
 .card-expertise span {
   font-family: var(--font-mono);
-  font-size: 0.65rem;
-  letter-spacing: 0.08em;
+  font-size: 0.58rem;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.6);
   border: 1px solid rgba(255,255,255,0.12);
-  padding: 0.35rem 0.75rem;
+  padding: 0.35rem 0.6rem;
   border-radius: 1px;
+  white-space: nowrap;
   transition: color 0.2s, border-color 0.2s;
 }
 .card-expertise span:hover {
