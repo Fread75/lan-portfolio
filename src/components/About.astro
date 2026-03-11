@@ -8,8 +8,8 @@ const expertises = [
   },
   {
     number: '02',
-    title: 'Communication Strategy',
-    desc: 'My expertise includes conducting in-depth communication audits and developing charters that define tone, messaging, and channels for both traditional and digital media.',
+    title: 'Communications Strategy',
+    desc: 'My expertise includes conducting in-depth communications audits and developing charters that define tone, messaging, and channels for both traditional and digital media.',
     tools: ['Editorial Charter', 'Content Strategy', 'SEO', 'Brand Identity'],
   },
   {
@@ -29,7 +29,7 @@ const expertises = [
         <p class="section-label">My Story</p>
         <h2 class="section-title">Solution-oriented<br /><em>professional</em></h2>
         <p class="bio-text">
-          Born and raised in Vietnam, I moved to France to pursue a master’s degree and went on to build my career in communications, gaining experience across diverse industries and international environments. I specialize in developing and executing integrated communication strategies that strengthen brand identity, drive employee engagement, and foster cultures of inclusion and diversity. My work spans end-to-end marketing and communications execution across social media, websites, SEO, analytics, UX/UI, video, events, and multimedia content production, translating strategic vision into cohesive storytelling, measurable performance, and business growth.
+          Born and raised in Vietnam, I moved to France to pursue a master’s degree and went on to build my career in communications, gaining experience across diverse industries and international environments. I specialize in developing and executing integrated communications strategies that strengthen brand identity, drive employee engagement, and foster cultures of inclusion and diversity. My work spans end-to-end marketing and communications execution across social media, websites, SEO, analytics, UX/UI, video, events, and multimedia content production, translating strategic vision into cohesive storytelling, measurable performance, and business growth.
         </p>
         <p class="bio-text" style="margin-top:1rem;">
           Fluent in English and French, passionate about technology innovation, I bring a global perspective and a collaborative mindset to every project, and I am currently seeking opportunities in New York City to contribute my expertise in strategic communications and engagement.
@@ -58,6 +58,11 @@ const expertises = [
               <span>Google Analytics · SEMrush · LinkedIn Analytics · Hootsuite</span>
             </div>
           </div>
+        </div>
+      </div>
+      <div class="about-photo-wrap">
+        <div class="about-photo">
+          <img src="/images/Lan Pic.jpeg" alt="Lan Nguyen portrait" loading="lazy" />
         </div>
       </div>
     </div>
@@ -90,11 +95,33 @@ const expertises = [
 }
 .about-intro {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
   gap: 4rem;
   margin-bottom: 6rem;
   padding-bottom: 6rem;
   border-bottom: 1px solid rgba(0,0,0,0.08);
+  align-items: start;
+}
+.about-photo-wrap {
+  display: flex;
+  justify-content: center;
+  padding-top: 4.5rem;
+}
+.about-photo {
+  width: min(100%, 320px);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 8px solid rgba(255,255,255,0.9);
+  box-shadow: 0 24px 60px rgba(26,16,7,0.12);
+  background: rgba(255,255,255,0.7);
+}
+.about-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
 }
 .bio-text {
   font-size: 1rem;
@@ -158,6 +185,20 @@ const expertises = [
 }
 .expertise-card:hover { background: var(--c-cream); }
 .expertise-card:hover::after { height: 3px; }
+
+@media (max-width: 900px) {
+  .about-intro {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .about-photo-wrap {
+    padding-top: 0;
+    order: -1;
+  }
+  .about-photo {
+    width: min(100%, 260px);
+  }
+}
 
 .exp-num {
   font-family: var(--font-display);
