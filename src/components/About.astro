@@ -91,7 +91,7 @@ const expertises = [
 <style>
 .about {
   padding: var(--section-pad) 0;
-  background: var(--c-cream);
+  background: transparent;
 }
 .about-intro {
   display: grid;
@@ -142,8 +142,15 @@ const expertises = [
   flex-direction: column;
   gap: 0.25rem;
   padding: 1rem 1.25rem;
-  background: white;
-  border: 1px solid rgba(0,0,0,0.06);
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.58), rgba(255,255,255,0.22)),
+    rgba(255,255,255,0.16);
+  border: 1px solid rgba(255,255,255,0.45);
+  backdrop-filter: blur(18px) saturate(135%);
+  -webkit-backdrop-filter: blur(18px) saturate(135%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.5),
+    0 12px 28px rgba(26,16,7,0.08);
 }
 .tool-cat-name {
   font-family: var(--font-mono);

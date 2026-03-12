@@ -25,7 +25,13 @@ html { scroll-behavior: smooth; font-size: 16px; }
 
 body {
   font-family: var(--font-body);
-  background: var(--c-warm-white);
+  background:
+    radial-gradient(circle at 18% 18%, rgba(194, 176, 255, 0.52), transparent 26%),
+    radial-gradient(circle at 82% 16%, rgba(255, 194, 220, 0.44), transparent 24%),
+    radial-gradient(circle at 72% 54%, rgba(246, 242, 169, 0.4), transparent 30%),
+    radial-gradient(circle at 34% 78%, rgba(255, 210, 188, 0.34), transparent 28%),
+    linear-gradient(135deg, #f3ebff 0%, #fff1d9 42%, #ffe7ee 74%, #eef7d1 100%);
+  background-attachment: fixed;
   color: var(--c-dark);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
