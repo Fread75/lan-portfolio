@@ -9,21 +9,35 @@ const projects = [
     tagline: 'How we increased SEO traffic by 80%',
     color: '#D4AF37',
     coverImg: '/images/istockphoto-1136817041-612x612.jpg',
-    galleryImgs: [
-      '/images/p4_img1_626x341.jpeg',
-      '/images/p4_img5_509x305.jpeg',
-      '/images/p4_img6_485x291.jpeg',
-      '/images/Screenshot 2026-03-10 at 9.11.16 PM.png',
-      '/images/Screenshot 2026-03-10 at 9.12.05 PM.png',
-      '/images/Screenshot 2026-03-10 at 9.12.56 PM.png',
-    ],
-    galleryLinks: [
-      'https://www.youtube.com/watch?v=fk_Qzi0W0gI&t=1s',
-      'https://www.youtube.com/watch?v=tb1pd5h-ado&t=1s',
-      'https://www.youtube.com/watch?v=_ia6LiBNEqg&t=3s',
-      'https://www.tapainstitute.com/',
-      'https://www.drsabinecharles.com/',
-      'https://www.charlesfs.com/',
+    galleryImgs: [],
+    galleryLinks: [],
+    galleryGroups: [
+      {
+        label: 'Ajinomoto',
+        images: [
+          '/images/p4_img1_626x341.jpeg',
+          '/images/p4_img5_509x305.jpeg',
+          '/images/p4_img6_485x291.jpeg',
+        ],
+        links: [
+          'https://www.youtube.com/watch?v=fk_Qzi0W0gI&t=1s',
+          'https://www.youtube.com/watch?v=tb1pd5h-ado&t=1s',
+          'https://www.youtube.com/watch?v=_ia6LiBNEqg&t=3s',
+        ],
+      },
+      {
+        label: 'Charles Financial Strategies',
+        images: [
+          '/images/Screenshot 2026-03-10 at 9.11.16 PM.png',
+          '/images/Screenshot 2026-03-10 at 9.12.05 PM.png',
+          '/images/Screenshot 2026-03-10 at 9.12.56 PM.png',
+        ],
+        links: [
+          'https://www.tapainstitute.com/',
+          'https://www.drsabinecharles.com/',
+          'https://www.charlesfs.com/',
+        ],
+      },
     ],
     context: 'Our company\'s website had not received any updates or maintenance for over two years. I led the call for tender process to find a qualified agency capable of managing a full transition—from the outdated CMS Drupal to CMS WordPress. This included a complete redesign of the web marketing approach, with a strong focus on user experience, measurable performance, and robust SEO optimization.',
     steps: [
@@ -312,22 +326,64 @@ const projects = [
               </div>
             )}
 
-            {project.galleryImgs.length > 0 && (
+            {project.stats.length > 0 && (
+              <div class="stats-row">
+                {project.stats.map(stat => (
+                  <div class="stat-chip">
+                    <span class="value">{stat.value}</span>
+                    <span class="label">{stat.label}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {project.link && (
+              <div class="cs-link">
+                <a href={project.link.url} class="cta-link" target="_blank" rel="noopener">
+                  {project.link.label} →
+                </a>
+              </div>
+            )}
+
+            {(project.galleryGroups?.length > 0 || project.galleryImgs.length > 0) && (
               <div class="cs-gallery">
                 <p class="section-label">Gallery</p>
-                <div class={`gallery-grid cols-${Math.min(project.galleryImgs.length, 3)}`}>
-                  {project.galleryImgs.map((img, i) => (
-                    <div class="gallery-item">
-                      {project.galleryLinks?.[i] ? (
-                        <a href={project.galleryLinks[i]} target="_blank" rel="noopener">
+                {project.galleryGroups?.length > 0 ? (
+                  <div class="gallery-groups">
+                    {project.galleryGroups.map((group) => (
+                      <div class="gallery-group">
+                        <p class="gallery-group-label">{group.label}</p>
+                        <div class={`gallery-grid cols-${Math.min(group.images.length, 3)}`}>
+                          {group.images.map((img, i) => (
+                            <div class="gallery-item">
+                              {group.links?.[i] ? (
+                                <a href={group.links[i]} target="_blank" rel="noopener">
+                                  <img src={img} alt={`${project.title} — ${group.label} — ${i + 1}`} loading="lazy" />
+                                </a>
+                              ) : (
+                                <img src={img} alt={`${project.title} — ${group.label} — ${i + 1}`} loading="lazy" />
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div class={`gallery-grid cols-${Math.min(project.galleryImgs.length, 3)}`}>
+                    {project.galleryImgs.map((img, i) => (
+                      <div class="gallery-item">
+                        {project.galleryLinks?.[i] ? (
+                          <a href={project.galleryLinks[i]} target="_blank" rel="noopener">
+                            <img src={img} alt={`${project.title} — ${i + 1}`} loading="lazy" />
+                          </a>
+                        ) : (
                           <img src={img} alt={`${project.title} — ${i + 1}`} loading="lazy" />
-                        </a>
-                      ) : (
-                        <img src={img} alt={`${project.title} — ${i + 1}`} loading="lazy" />
-                      )}
-                    </div>
-                  ))}
-                </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             )}
 
@@ -361,25 +417,6 @@ const projects = [
                     </div>
                   ))}
                 </div>
-              </div>
-            )}
-
-            {project.stats.length > 0 && (
-              <div class="stats-row">
-                {project.stats.map(stat => (
-                  <div class="stat-chip">
-                    <span class="value">{stat.value}</span>
-                    <span class="label">{stat.label}</span>
-                  </div>
-                ))}
-              </div>
-            )}
-
-            {project.link && (
-              <div class="cs-link">
-                <a href={project.link.url} class="cta-link" target="_blank" rel="noopener">
-                  {project.link.label} →
-                </a>
               </div>
             )}
           </div>
@@ -437,6 +474,15 @@ const projects = [
 .cs-link { margin-top: 2rem; }
 
 .cs-gallery { margin: 2rem 0 3rem; }
+.gallery-groups { display: flex; flex-direction: column; gap: 1.75rem; margin-top: 1rem; }
+.gallery-group-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-orange);
+  margin-bottom: 0.75rem;
+}
 .gallery-grid { display: grid; gap: 0.5rem; margin-top: 1rem; }
 .cols-1 { grid-template-columns: 1fr; }
 .cols-2 { grid-template-columns: 1fr 1fr; }
