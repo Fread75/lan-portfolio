@@ -1,4 +1,26 @@
 ---
+const getYouTubeEmbedUrl = (url) => {
+  if (!url) return null;
+
+  try {
+    const parsedUrl = new URL(url);
+
+    if (parsedUrl.hostname.includes('youtu.be')) {
+      const videoId = parsedUrl.pathname.slice(1);
+      return videoId ? `https://www.youtube.com/embed/${videoId}` : null;
+    }
+
+    if (parsedUrl.hostname.includes('youtube.com')) {
+      const videoId = parsedUrl.searchParams.get('v');
+      return videoId ? `https://www.youtube.com/embed/${videoId}` : null;
+    }
+  } catch {
+    return null;
+  }
+
+  return null;
+};
+
 const projects = [
   {
     id: 'website-redesign',
@@ -65,18 +87,60 @@ const projects = [
     link: { label: 'Visit the website', url: 'https://ajifoodsolutions.eu/' },
   },
   {
-    id: 'extranet-client',
+    id: 'events',
     number: '02',
+    title: 'Events',
+    company: 'For several companies',
+    tag: 'Event Management',
+    tagline: 'Team buildings, product launches, town halls — up to 3,000 participants',
+    color: '#2D6A4F',
+    coverImg: '/images/IMG_1382.webp',
+    galleryImgs: [],
+    galleryLinks: [],
+    galleryGroups: [
+      {
+        label: 'Ajinomoto Foods Europe',
+        images: [
+          '/images/annual-meeting.webp',
+          '/images/2I4A5775-2.webp',
+          '/images/8G1A2065-2.webp',
+        ],
+        links: [],
+      },
+      {
+        label: 'Imperial Tobacco Limited France',
+        images: [
+          '/images/Screenshot 2026-03-12 at 9.12.10 PM.png',
+          '/images/IMG_8966.jpg',
+          '/images/Screenshot 2026-03-12 at 9.17.31 PM.png',
+        ],
+        links: [],
+      },
+    ],
+    context: 'I have extensive experience organizing corporate events, working closely with the HR department and Executive Assistants. My responsibilities include managing calls for tender, developing event agendas, designing invitations, and overseeing on-site photography and video production.',
+    steps: [
+      { num: '01', title: 'Event Communication Strategy', desc: 'Supported end-to-end communication for corporate events, from Town Halls and product launches to company anniversaries, driving awareness and engagement.' },
+      { num: '02', title: 'Marketing Asset Creation', desc: 'Collaborated with creative teams to produce on-brand assets, including banners, social media visuals, and promotional videos for event promotion.' },
+      { num: '03', title: 'Campaign Coordination', desc: 'Managed communication workflows and campaign execution, ensuring timely delivery and consistent messaging across channels.' },
+      { num: '04', title: 'Global & Internal Alignment', desc: 'Partnered with regional teams to deliver localized communications and created internal materials to align teams around event goals and messaging.' },
+    ],
+    phases: [
+    ],
+    stats: [],
+    videos: [],
+    link: null,
+  },
+  {
+    id: 'extranet-client',
+    number: '03',
     title: 'Extranet Client',
     company: 'Ajinomoto Foods Europe SID',
     tag: 'Digital Project Management',
     tagline: 'Solving document fragmentation for 200+ clients',
     color: '#C0392B',
     coverImg: '/images/4b6c310ad8c9278de25320e128315c98.jpeg',
-    galleryImgs: [
-      '/images/p3_img2_284x191.jpeg',
-      '/images/p3_img3_373x188.jpeg',
-    ],
+    galleryImgs: [],
+    galleryLinks: [],
     context: 'Our company initiated the development of a new client extranet platform aimed at serving external partners, the Quality department, and the Sales department. This extranet stores and generates key documents—certificates, statements, and legal documentation. A data transfer bridge (passerelle) was developed to synchronize documents from internal systems.',
     steps: [
       { num: '01', title: 'Call for Tender', desc: 'Selecting the right agency to meet our needs and deliver a high-performance platform.' },
@@ -102,7 +166,7 @@ const projects = [
   },
   {
     id: 'video-producing',
-    number: '03',
+    number: '04',
     title: 'Video Producing',
     company: 'For several companies',
     tag: 'Video Content Production',
@@ -111,13 +175,35 @@ const projects = [
     coverImg: '/images/83dc6e11-4167-4538-bd93-e24f1320c4a4.JPG',
     coverPosition: '50% 22%',
     coverSize: 'cover',
-    galleryImgs: [
-      '/images/p4_img2_450x290.jpeg',
-      '/images/p4_img4_503x282.jpeg',
-    ],
-    galleryLinks: [
-      'https://players.brightcove.net/2178772974001/default_default/index.html?videoId=6262049188001',
-      'https://www.linkedin.com/posts/ajinomoto-foods-europe-solutions-ingredients_ajinomoto-fieurope-2022-activity-7006217777631887360-A5ns?utm_source=share&utm_medium=member_desktop&rcm=ACoAAB-ZrXkBCMuucTaxWNW5FBdwDCcgv-cImTQ',
+    galleryImgs: [],
+    galleryLinks: [],
+    galleryGroups: [
+      {
+        label: 'Ajinomoto Foods Europe',
+        images: [
+          '/images/Screenshot 2026-03-12 at 10.07.36 PM.png',
+          '/images/Screenshot 2026-03-12 at 10.06.55 PM.png',
+          '/images/p4_img4_503x282.jpeg',
+        ],
+        links: [
+          'https://www.youtube.com/watch?v=TTef4TQwOjY&t=5s',
+          'https://www.youtube.com/watch?v=TPZq1wYavcQ',
+          'https://www.linkedin.com/posts/ajinomoto-foods-europe-solutions-ingredients_ajinomoto-fieurope-2022-activity-7006217777631887360-A5ns?utm_source=share&utm_medium=member_desktop&rcm=ACoAAB-ZrXkBCMuucTaxWNW5FBdwDCcgv-cImTQ',
+        ],
+      },
+      {
+        label: 'Imperial Tobacco Limited France',
+        images: [
+          '/images/Screenshot 2026-03-12 at 10.02.18 PM.png',
+          '/images/Screenshot 2026-03-12 at 9.56.03 PM.png',
+          '/images/Screenshot 2026-03-12 at 9.55.18 PM.png',
+        ],
+        links: [
+          'https://players.brightcove.net/2178772974001/default_default/index.html?videoId=6262049188001',
+          'https://players.brightcove.net/2178772974001/default_default/index.html?videoId=6280942439001',
+          'https://players.brightcove.net/2178772974001/default_default/index.html?videoId=6279944603001',
+        ],
+      },
     ],
     context: 'I have always been passionate about video production and have had the opportunity to apply this passion across every company I\'ve worked with. My experience spans the entire production process: scripting, filming, post-production, music selection, and subtitling. I\'ve created interviews, event coverage, career testimonials, and corporate videos.',
     steps: [
@@ -139,7 +225,7 @@ const projects = [
   },
   {
     id: 'photography',
-    number: '04',
+    number: '05',
     title: 'Photography',
     company: 'For several companies',
     tag: 'Visual Communications',
@@ -165,7 +251,7 @@ const projects = [
   },
   {
     id: 'social-media',
-    number: '05',
+    number: '06',
     title: 'Social Media Management',
     company: 'Ajinomoto Foods Europe SID · Charles Financial Strategies',
     tag: 'Digital Marketing',
@@ -196,24 +282,42 @@ const projects = [
   },
   {
     id: 'newsletter',
-    number: '06',
+    number: '07',
     title: 'Newsletter Print & Digital',
     company: 'Imperial Tobacco Limited France · Mothers to Daughters',
     tag: 'Communications Strategy',
     tagline: '11 countries · 3,500 audience · +50% employee motivation',
     color: '#6B5EA8',
     coverImg: '/images/Screenshot 2026-03-10 at 9.42.21 PM.png',
-    galleryImgs: [
-      '/images/Screenshot 2026-03-02 at 10.26.44 AM.png',
-      '/images/Beige Simple Interior Design Mood Board Photo Collage (1).png',
-      '/images/Screenshot 2026-01-17 at 12.13.46 PM.png',
-      '/images/Screenshot 2026-01-17 at 12.15.39 PM.png',
-    ],
-    galleryLinks: [
-      'https://mothers-to-daughters.kit.com/posts/honoring-legacy-inspiring-growth-leading-forward',
-      'https://mothers-to-daughters.kit.com/posts/generations-in-motion-where-connection-becomes-growth',
-      'https://mothers-to-daughters.kit.com/posts/season-s-greetings-wishes-what-we-accomplished-together',
-      'https://mothers-to-daughters.kit.com/posts/youth-leadership-council-upcoming-workshop-thanksgiving-wishes',
+    galleryImgs: [],
+    galleryLinks: [],
+    galleryGroups: [
+      {
+        label: 'Mothers to Daughters',
+        images: [
+          '/images/Screenshot 2026-03-02 at 10.26.44 AM.png',
+          '/images/Beige Simple Interior Design Mood Board Photo Collage (1).png',
+          '/images/Screenshot 2026-01-17 at 12.13.46 PM.png',
+          '/images/Screenshot 2026-01-17 at 12.15.39 PM.png',
+        ],
+        links: [
+          'https://mothers-to-daughters.kit.com/posts/honoring-legacy-inspiring-growth-leading-forward',
+          'https://mothers-to-daughters.kit.com/posts/generations-in-motion-where-connection-becomes-growth',
+          'https://mothers-to-daughters.kit.com/posts/season-s-greetings-wishes-what-we-accomplished-together',
+          'https://mothers-to-daughters.kit.com/posts/youth-leadership-council-upcoming-workshop-thanksgiving-wishes',
+        ],
+      },
+      {
+        label: 'Imperial Tobacco Limited France',
+        images: [
+          '/images/Screenshot 2025-05-16 at 1.10.14 PM.png',
+          '/images/Screenshot 2025-05-16 at 1.13.00 PM.png',
+        ],
+        links: [
+          'https://africaiohrandcommunications.newsweaver.com/ywrmtg6pws/1b3viap2p8t',
+          'https://africaiohrandcommunications.newsweaver.com/ywrmtg6pws/qyxmtr4sdcn',
+        ],
+      },
     ],
     context: 'I led the development of the quarterly print newsletter within the Africa and Indian Ocean cluster. In response to COVID-19 and structural changes, I guided the transition to a digital format—transforming a traditional medium into a more agile and impactful communications channel with measurable analytics.',
     steps: [
@@ -232,24 +336,6 @@ const projects = [
       { value: '3500', label: 'Audience' },
       { value: '+50%', label: 'Employee motivation' },
     ],
-    videos: [],
-    link: null,
-  },
-  {
-    id: 'events',
-    number: '07',
-    title: 'Events',
-    company: 'For several companies',
-    tag: 'Event Management',
-    tagline: 'Team buildings, product launches, town halls — up to 3,000 participants',
-    color: '#2D6A4F',
-    coverImg: '/images/p1_img12_194x192.jpeg',
-    galleryImgs: [],
-    galleryLinks: [],
-    context: 'I have extensive experience organizing corporate events, working closely with the HR department and Executive Assistants. My responsibilities include managing calls for tender, developing event agendas, designing invitations, and overseeing on-site photography and video production.',
-    steps: [],
-    phases: [],
-    stats: [],
     videos: [],
     link: null,
   },
@@ -353,10 +439,19 @@ const projects = [
                     {project.galleryGroups.map((group) => (
                       <div class="gallery-group">
                         <p class="gallery-group-label">{group.label}</p>
-                        <div class={`gallery-grid cols-${Math.min(group.images.length, 3)}`}>
+                        <div class={`gallery-grid cols-${Math.min(group.images.length, 4)}`}>
                           {group.images.map((img, i) => (
                             <div class="gallery-item">
-                              {group.links?.[i] ? (
+                              {getYouTubeEmbedUrl(group.links?.[i]) ? (
+                                <iframe
+                                  src={getYouTubeEmbedUrl(group.links?.[i])}
+                                  title={`${project.title} — ${group.label} — video ${i + 1}`}
+                                  loading="lazy"
+                                  frameborder="0"
+                                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                  allowfullscreen
+                                ></iframe>
+                              ) : group.links?.[i] ? (
                                 <a href={group.links[i]} target="_blank" rel="noopener">
                                   <img src={img} alt={`${project.title} — ${group.label} — ${i + 1}`} loading="lazy" />
                                 </a>
@@ -370,10 +465,19 @@ const projects = [
                     ))}
                   </div>
                 ) : (
-                  <div class={`gallery-grid cols-${Math.min(project.galleryImgs.length, 3)}`}>
+                  <div class={`gallery-grid cols-${Math.min(project.galleryImgs.length, 4)}`}>
                     {project.galleryImgs.map((img, i) => (
                       <div class="gallery-item">
-                        {project.galleryLinks?.[i] ? (
+                        {getYouTubeEmbedUrl(project.galleryLinks?.[i]) ? (
+                          <iframe
+                            src={getYouTubeEmbedUrl(project.galleryLinks?.[i])}
+                            title={`${project.title} — video ${i + 1}`}
+                            loading="lazy"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen
+                          ></iframe>
+                        ) : project.galleryLinks?.[i] ? (
                           <a href={project.galleryLinks[i]} target="_blank" rel="noopener">
                             <img src={img} alt={`${project.title} — ${i + 1}`} loading="lazy" />
                           </a>
@@ -487,8 +591,10 @@ const projects = [
 .cols-1 { grid-template-columns: 1fr; }
 .cols-2 { grid-template-columns: 1fr 1fr; }
 .cols-3 { grid-template-columns: repeat(3, 1fr); }
+.cols-4 { grid-template-columns: repeat(4, 1fr); }
 .gallery-item { overflow: hidden; aspect-ratio: 16/10; background: var(--c-cream); }
 .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.gallery-item iframe { width: 100%; height: 100%; border: none; display: block; }
 .gallery-item:hover img { transform: scale(1.06); }
 
 /* Videos */
