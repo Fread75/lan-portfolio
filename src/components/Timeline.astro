@@ -2,7 +2,7 @@
 const timeline = [
   {
     period: '2025 — Now',
-    role: 'Freelance',
+    role: '',
     company: 'Charles Financial Strategies · Mothers to Daughters',
     location: 'New York, US',
     color: '#ff738e',
@@ -71,7 +71,7 @@ const timeline = [
           <div class="timeline-right">
             <div class="timeline-card" style={`--accent: ${item.color}`}>
               <div class="tc-header">
-                <h3 class="tc-role">{item.role}</h3>
+                {item.role && <h3 class="tc-role">{item.role}</h3>}
                 <div class="tc-meta">
                   <span class="tc-company">{item.company}</span>
                   <span class="tc-location">📍 {item.location}</span>
